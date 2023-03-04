@@ -11,14 +11,13 @@ const io = require('socket.io')(http, {
 io.on('connection', (socket) => {
   console.log('Usuario conectado');
 
-  socket.on('test', () => {
-    console.log("Evento test recibido");
-    socket.emit('test2');
-  });
-});
-
-app.get('/', (req, res) => {
-  res.send('<h1>Hola mundo</h1>');
+  socket.on('enviarMensaje', (infoMensaje) => {
+    console.log("Mensaje recibido: ", infoMensaje);
+    // Cambiamos el tipo del mensaje a remoto
+    infoMensaje.tipoMensaje = 2;
+    // Emitimos el mensaje a todos los clientes excepto al que lo envió
+    socket.broadcast.emit('recibirMensaje', infoMensaje);
+    });
 });
 
 http.listen(3000, () => {

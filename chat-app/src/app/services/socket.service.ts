@@ -12,10 +12,5 @@ export class SocketService {
   });
 
   constructor() {
-    this.io.emit('test');
-
-    this.io.on('test2', () => {
-      console.log('Evento test2 recibido')
-    });
   }
 }

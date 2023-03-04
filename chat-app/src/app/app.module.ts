@@ -6,6 +6,8 @@ import { ChatComponent } from './component/chat/chat.component';
 
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
+import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms'
 
 
 @NgModule({
@@ -16,7 +18,9 @@ import { AppRoutingModule } from './app-routing.module';
   imports: [
     BrowserModule,
     RouterModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
